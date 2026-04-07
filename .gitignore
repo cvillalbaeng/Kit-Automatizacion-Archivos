@@ -1,6 +1,31 @@
+# --- Entornos Virtuales ---
 venv/
-__pycache__/
-*.pyc
-.DS_Store
+env/
+ENV/
+bin/
+lib/
+include/
+
+# --- Carpetas de Ejecución ---
+tests_sample/
+backups/
+
+# --- Archivos de Auditoría y Snapshots ---
 snapshot.json
 audit.log
+
+# --- Reportes Finales ---
+*.csv
+*.txt
+
+# --- Caché de Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Archivos de Sistema y Editores ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
