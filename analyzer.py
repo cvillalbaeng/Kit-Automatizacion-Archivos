@@ -37,6 +37,13 @@ def buscar_correos_regex(ruta_archivo):
 
     print(f"\n--- Analizando archivo: {os.path.basename(ruta_archivo)} ---")
 
+# Consumimos el generador linea por linea
+    for linea in leer_archivo_grande(ruta_archivo):
+        # findall busca todas las coincidencias del regex en la linea actual
+        coincidencias = regex.findall(linea)
+        for correo in coincidencias:
+            correos_encontrados.add(correo)  # .add() mete el elemento en el set
+
     return list(
         correos_encontrados
     )  # Convertimos el set a lista para retornarlo más fácil
