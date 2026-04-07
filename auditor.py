@@ -121,5 +121,16 @@ def comparar_cambios(carpeta_objetivo, archivo_snapshot="snapshot.json"):
         if os.path.isfile(ruta_completa):
             snapshot_nuevo[nombre_archivo] = os.path.getsize(ruta_completa)
 
+# 3. CONJUNTOS (Sets):
+    # Convertimos las listas de nombres de archivos en Conjuntos Matemáticos
+    viejos_set = set(snapshot_viejo.keys())
+    nuevos_set = set(snapshot_nuevo.keys())
+
+    # Resta de conjuntos: Lo que está en los nuevos pero no en los viejos (Archivos agregados)
+    agregados = nuevos_set - viejos_set
+
+    # Resta de conjuntos: Lo que estaba en los viejos pero ya no está en los nuevos (Archivos borrados)
+    eliminados = viejos_set - nuevos_set
+
             
     return {"agregados": list(agregados), "eliminados": list(eliminados)}
