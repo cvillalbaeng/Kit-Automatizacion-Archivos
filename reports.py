@@ -11,7 +11,8 @@ def generar_reporte_csv(datos_reporte, nombre_archivo="reporte_analisis.csv"):
     """
     campos = ["Archivo", "Categoria", "Correos_Hallados"]
 
-    with open(nombre_archivo, "w", newline="", encoding="utf-8") as archivo_csv:
+ # IMPORTANTE: Usamos encoding='utf-8-sig' en lugar de 'utf-8'
+    with open(nombre_archivo, "w", newline="", encoding="utf-8-sig") as archivo_csv:
         escritor = csv.DictWriter(archivo_csv, fieldnames=campos, delimiter=";")
         escritor.writeheader()
         escritor.writerows(datos_reporte)
